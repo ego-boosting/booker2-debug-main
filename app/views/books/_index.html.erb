@@ -18,6 +18,7 @@
         <td><%= book.body %></td>
         
         <% if user.nil? %>
+        
           <td>
             <% if book.favorited_by?(current_user) %>
               <p>
