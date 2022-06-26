@@ -13,7 +13,10 @@ class BookCommentsController < ApplicationController
     BookComment.find(params[:id]).destroy
     redirect_to book_path(params[:book_id])
   end
-
+  
+  # comment = current_user.book_comments.new(book_comment_params)
+  # comment = BookComment.new(book_comment_params)
+  # comment.user_id = current_user.id
 
 
 
