@@ -18,8 +18,21 @@
   </tr>
 </table>
 
+<div class="mb-3">
+  <% if current_user.following?(user) %>
+    <%= link_to "unfollow", user_relationships_path(user.id), class: "btn btn-info", method: :delete %>
+  <% else %>
+    <%= link_to "follow", user_relationships_path(user.id), class: "btn btn-success", method: :post %>
+  <% end %>
+  <!-- current_userと@userが一致していない場合に`Begin Chat`を表示 -->
+  <% if current_user != user %>
+    <%= link_to 'Begin Chat', chat_path(user.id) %>
+  <% end %>
+</div>
+
 <div class='row'>
   <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
+
 </div>
